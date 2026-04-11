@@ -1,12 +1,34 @@
 body {
-  background-color: lightblue;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-   font-family: "Copperplate", fantasy;
-  color: slateBlue;
+    text-align: center;
+    color: #2c3e50;
 }
 
-p {
-  color: navy;
+h2 {
+    margin-top: 20px;
+    color: #34495e;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
 }
