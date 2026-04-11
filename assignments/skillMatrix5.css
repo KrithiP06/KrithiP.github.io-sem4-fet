@@ -3,6 +3,9 @@ body {
 }
 
 h1 {
+  color: slateBlue;
+}
+
+p {
   color: navy;
-  margin-left: 20px;
 }
