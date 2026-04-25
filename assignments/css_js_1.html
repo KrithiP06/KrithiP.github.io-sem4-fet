@@ -82,6 +82,7 @@
 
         <br><br>
 
+        <!-- Button moved OUTSIDE CSS and placed correctly -->
         <button class="btn" onclick="updateDetails()">Update Details</button>
     </div>
 
@@ -89,10 +90,12 @@
         function updateDetails() {
             let name = prompt("Enter your name:");
             let role = prompt("Enter your role:");
+            let about = prompt("Write about yourself:");
 
             if (name && role && about) {
                 document.querySelector("h1").innerText = "Hi, I'm " + name;
                 document.querySelector("h2").innerText = role;
+                document.querySelector("p").innerText = about;
 
                 alert("Details updated successfully!");
             } else {
