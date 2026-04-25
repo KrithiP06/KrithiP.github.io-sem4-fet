@@ -61,6 +61,14 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 
@@ -68,7 +76,7 @@
 
     <div class="container">
         <h1>Hi, I'm Krithi Prakash</h1>
-        <h2>Engineering Student | Aspiring Developer</h2>
+        <h2 id="role">Engineering Student | Aspiring Developer</h2>
 
         <p>
             I am a passionate engineering student interested in building real-world
@@ -82,24 +90,19 @@
 
         <br><br>
 
-        <!-- Button moved OUTSIDE CSS and placed correctly -->
-        <button class="btn" onclick="updateDetails()">Update Details</button>
+        <input type="text" id="roleInput" placeholder="Enter new role">
+        <button class="btn" onclick="updateRole()">Update Role</button>
     </div>
 
     <script>
-        function updateDetails() {
-            let name = prompt("Enter your name:");
-            let role = prompt("Enter your role:");
-            let about = prompt("Write about yourself:");
+        function updateRole() {
+            let role = document.getElementById("roleInput").value;
 
-            if (name && role && about) {
-                document.querySelector("h1").innerText = "Hi, I'm " + name;
-                document.querySelector("h2").innerText = role;
-                document.querySelector("p").innerText = about;
-
-                alert("Details updated successfully!");
+            if (role.trim() !== "") {
+                document.getElementById("role").innerText = role;
+                alert("Role updated successfully!");
             } else {
-                alert("Please enter all details!");
+                alert("Please enter a role!");
             }
         }
     </script>
