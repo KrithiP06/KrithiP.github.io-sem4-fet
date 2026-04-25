@@ -8,51 +8,56 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #e3f2fd, #ffffff);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
         .container {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: left;
+            max-width: 550px;
         }
 
         h1 {
-            color: #0d47a1;
-            margin-bottom: 10px;
+            margin: 0;
+            font-size: 32px;
+            color: #333;
         }
 
         h2 {
-            color: #555;
-            font-weight: normal;
-            margin-bottom: 20px;
+            margin: 10px 0 20px;
+            font-weight: 500;
+            color: #666;
         }
 
         p {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 30px;
         }
 
-        a {
+        .btn {
+            display: inline-block;
             text-decoration: none;
-            background-color: #0d47a1;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
             color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            transition: 0.3s;
+            font-weight: 500;
+            transition: 0.3s ease;
         }
 
-        a:hover {
-            background-color: #1565c0;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -69,7 +74,9 @@
             I enjoy learning new technologies and solving problems creatively.
         </p>
 
-        <a href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">Back to Homepage</a>
+        <a class="btn" href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
+            Back to Homepage
+        </a>
     </div>
 
 </body>
