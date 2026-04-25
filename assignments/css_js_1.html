@@ -61,14 +61,6 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
     </style>
 </head>
 
@@ -90,19 +82,19 @@
 
         <br><br>
 
-        <input type="text" id="roleInput" placeholder="Enter new role">
-        <button class="btn" onclick="updateRole()">Update Role</button>
+        <!-- Button to update role -->
+        <button class="btn" onclick="updateRole()">Change Role</button>
     </div>
 
     <script>
         function updateRole() {
-            let role = document.getElementById("roleInput").value;
+            let role = prompt("Enter your new role:");
 
-            if (role.trim() !== "") {
+            if (role && role.trim() !== "") {
                 document.getElementById("role").innerText = role;
                 alert("Role updated successfully!");
             } else {
-                alert("Please enter a role!");
+                alert("Role not updated!");
             }
         }
     </script>
