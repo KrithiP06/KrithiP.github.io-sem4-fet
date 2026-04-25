@@ -24,7 +24,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             text-align: left;
             max-width: 550px;
-            <button onclick="updateDetails()" class="btn">Update Details</button>
         }
 
         h1 {
@@ -54,6 +53,8 @@
             color: white;
             font-weight: 500;
             transition: 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -78,23 +79,30 @@
         <a class="btn" href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
             Back to Homepage
         </a>
+
+        <br><br>
+
+        <!-- Button moved OUTSIDE CSS and placed correctly -->
+        <button class="btn" onclick="updateDetails()">Update Details</button>
     </div>
+
     <script>
-function updateDetails() {
-  let name = prompt("Enter your name:");
-  let role = prompt("Enter your role:");
-  let about = prompt("Write about yourself:");
+        function updateDetails() {
+            let name = prompt("Enter your name:");
+            let role = prompt("Enter your role:");
+            let about = prompt("Write about yourself:");
 
-  if (name && role && about) {
-    document.querySelector("h1").innerText = "Hi, I'm " + name;
-    document.querySelector("h2").innerText = role;
-    document.querySelector("p").innerText = about;
+            if (name && role && about) {
+                document.querySelector("h1").innerText = "Hi, I'm " + name;
+                document.querySelector("h2").innerText = role;
+                document.querySelector("p").innerText = about;
 
-    alert("Details updated successfully!");
-  } else {
-    alert("Please enter all details!");
-  }
-}
-</script>
+                alert("Details updated successfully!");
+            } else {
+                alert("Please enter all details!");
+            }
+        }
+    </script>
+
 </body>
 </html>
