@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Form</title>
 
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        .output {
+            margin-top: 20px;
+            background: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>User Form</h2>
+
+<form id="userForm">
+
+    Name:
+    <input type="text" id="name">
+
+    Email:
+    <input type="email" id="email">
+
+    Gender:<br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    Hobbies:<br>
+    <input type="checkbox" value="Reading" class="hobby"> Reading
+    <input type="checkbox" value="Sports" class="hobby"> Sports
+    <input type="checkbox" value="Music" class="hobby"> Music
+    <br><br>
+
+    Country:
+    <select id="country">
+        <option>India</option>
+        <option>USA</option>
+        <option>UK</option>
+    </select>
+
+    Short Bio:
+    <textarea id="bio" rows="2"></textarea>
+
+    Feedback:
+    <textarea id="feedback" rows="4"></textarea>
+
+    <button type="button" onclick="displayData()">Submit</button>
+
+</form>
+
+<div class="output" id="outputBox">
+    <h3>Submitted Data Will Appear Here</h3>
+</div>
+
+</div>
+
+<script>
+function displayData() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    let gender = "";
+    let genders = document.getElementsByName("gender");
+    for (let g of genders) {
+        if (g.checked) {
+            gender = g.value;
+        }
+    }
+
+    let hobbies = [];
+    let hobbyList = document.getElementsByClassName("hobby");
+    for (let h of hobbyList) {
+        if (h.checked) {
+            hobbies.push(h.value);
+        }
+    }
+
+    let country = document.getElementById("country").value;
+    let bio = document.getElementById("bio").value;
+    let feedback = document.getElementById("feedback").value;
+
+    document.getElementById("outputBox").innerHTML =
+        "<h3>Submitted Data</h3>" +
+        "<p><b>Name:</b> " + name + "</p>" +
+        "<p><b>Email:</b> " + email + "</p>" +
+        "<p><b>Gender:</b> " + gender + "</p>" +
+        "<p><b>Hobbies:</b> " + hobbies.join(", ") + "</p>" +
+        "<p><b>Country:</b> " + country + "</p>" +
+        "<p><b>Short Bio:</b> " + bio + "</p>" +
+        "<p><b>Feedback:</b> " + feedback + "</p>";
+}
+</script>
+
+</body>
+</html>
