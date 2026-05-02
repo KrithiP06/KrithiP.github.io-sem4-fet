@@ -17,19 +17,16 @@ input,select,textarea {width:100%; margin:5px 0; padding:6px;}
 
 <div class="container">
 
-<h2>Form</h2>
+<h2> Simple Forms</h2>
 
 <input type="text" id="name" placeholder="Name">
 <input type="email" id="email" placeholder="Email">
 
-<br>
-<input type="radio" name="g" value="Male"> Male
-<input type="radio" name="g" value="Female"> Female
+<label><input type="radio" name="g" value="Male"> Male</label><br>
+<label><input type="radio" name="g" value="Female"> Female</label><br>
 
-<br><br>
-<input type="checkbox" value="Reading" class="h"> Reading
-<input type="checkbox" value="Sports" class="h"> Sports
-
+<label><input type="checkbox" value="Reading"> Reading</label><br>
+<label><input type="checkbox" value="Sports"> Sports</label><br>
 <br><br>
 <select id="country">
     <option>India</option>
@@ -72,7 +69,7 @@ function store(){
         feed:document.getElementById("feed").value
     };
 
-    alert("Saved!");
+    alert("Saved");
 }
 
 function show(){
