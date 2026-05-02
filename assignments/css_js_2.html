@@ -84,23 +84,48 @@
         <button class="btn" onclick="getUserName()">Click Me</button>
     </div>
 
-    <script>
-        window.onload = function() {
-            alert("Welcome to Krithi's Portfolio!");
-        };
+   <script>
+    window.onload = function() {
+        console.log("Page loaded successfully");
+        alert("Welcome to Krithi's Portfolio!");
+    };
 
-        function getUserName() {
-            let name = prompt("Enter your name:");
+    function getUserName() {
+        console.log("Button clicked");
 
-            if (name === null || name.trim() === "") {
-                alert("Name cannot be empty. Please try again!");
-            } else {
-                alert("Hello " + name + "!");
-                document.getElementById("message").innerHTML =
+        debugger; // Pauses execution in Sources tab
+
+        let name = prompt("Enter your name:");
+        console.log("User entered:", name);
+
+        // Validation
+        if (name === null) {
+            console.log("User cancelled the prompt");
+            alert("You cancelled the input.");
+        } 
+        else if (name.trim() === "") {
+            console.log("Empty input detected");
+            alert("Name cannot be empty. Please try again!");
+        } 
+        else {
+            console.log("Valid name:", name);
+
+            alert("Hello " + name + "!");
+
+            let msgElement = document.getElementById("message");
+
+            if (msgElement) {
+                msgElement.innerHTML =
                     "Welcome " + name + "! Thanks for visiting my portfolio.";
+                console.log("Message updated successfully");
+            } else {
+                console.error("Element with ID 'message' not found");
             }
         }
-    </script>
+
+        console.log("Function execution completed");
+    }
+</script>
 
 </body>
 </html>
