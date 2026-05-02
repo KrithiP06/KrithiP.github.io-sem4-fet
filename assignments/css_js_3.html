@@ -3,6 +3,56 @@
 <head>
     <title>User Form</title>
 
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 420px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        .btn {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .display-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+        }
+
+        .output {
+            margin-top: 20px;
+            background: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,7 +61,7 @@
 
 <h2>User Form</h2>
 
-<form id="userForm">
+<form>
 
     Name:
     <input type="text" id="name">
@@ -43,52 +93,68 @@
     Feedback:
     <textarea id="feedback" rows="4"></textarea>
 
-    <button type="button" onclick="displayData()">Submit</button>
+    <button type="button" class="btn submit-btn" onclick="storeData()">
+        Submit
+    </button>
+
+    <button type="button" class="btn display-btn" onclick="displayData()">
+        Display Result
+    </button>
 
 </form>
 
-<div class="output" id="outputBox">
-    <h3>Submitted Data Will Appear Here</h3>
-</div>
+<div class="output" id="outputBox"></div>
 
 </div>
 
 <script>
-function displayData() {
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
+let formData = {};
+function storeData() {
 
     let gender = "";
+    let hobbies = [];
+
     let genders = document.getElementsByName("gender");
     for (let g of genders) {
-        if (g.checked) {
-            gender = g.value;
-        }
+        if (g.checked) gender = g.value;
     }
 
-    let hobbies = [];
     let hobbyList = document.getElementsByClassName("hobby");
     for (let h of hobbyList) {
-        if (h.checked) {
-            hobbies.push(h.value);
-        }
+        if (h.checked) hobbies.push(h.value);
     }
 
-    let country = document.getElementById("country").value;
-    let bio = document.getElementById("bio").value;
-    let feedback = document.getElementById("feedback").value;
+    formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        gender: gender,
+        hobbies: hobbies,
+        country: document.getElementById("country").value,
+        bio: document.getElementById("bio").value,
+        feedback: document.getElementById("feedback").value
+    };
 
-    document.getElementById("outputBox").innerHTML =
-        "<h3>Submitted Data</h3>" +
-        "<p><b>Name:</b> " + name + "</p>" +
-        "<p><b>Email:</b> " + email + "</p>" +
-        "<p><b>Gender:</b> " + gender + "</p>" +
-        "<p><b>Hobbies:</b> " + hobbies.join(", ") + "</p>" +
-        "<p><b>Country:</b> " + country + "</p>" +
-        "<p><b>Short Bio:</b> " + bio + "</p>" +
-        "<p><b>Feedback:</b> " + feedback + "</p>";
+    alert("Data stored successfully!");
 }
+
+function displayData() {
+
+    let output = document.getElementById("outputBox");
+
+    output.innerHTML =
+        "<h3>Submitted Data</h3>" +
+        "<p><b>Name:</b> " + formData.name + "</p>" +
+        "<p><b>Email:</b> " + formData.email + "</p>" +
+        "<p><b>Gender:</b> " + formData.gender + "</p>" +
+        "<p><b>Hobbies:</b> " + formData.hobbies.join(", ") + "</p>" +
+        "<p><b>Country:</b> " + formData.country + "</p>" +
+        "<p><b>Short Bio:</b> " + formData.bio + "</p>" +
+        "<p><b>Feedback:</b> " + formData.feedback + "</p>";
+
+    output.style.display = "block";
+}
+
 </script>
 
 </body>
