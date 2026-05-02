@@ -53,6 +53,7 @@
             color: white;
             font-weight: 500;
             transition: 0.3s ease;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -68,7 +69,7 @@
         <h1>Hi, I'm Krithi Prakash</h1>
         <h2>Engineering Student | Aspiring Developer</h2>
 
-        <p>
+        <p id="message">
             I am a passionate engineering student interested in building real-world
             applications. My tech stack includes HTML, CSS, Java, and basic Python.
             I enjoy learning new technologies and solving problems creatively.
@@ -77,7 +78,29 @@
         <a class="btn" href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
             Back to Homepage
         </a>
+
+        <br><br>
+
+        <button class="btn" onclick="getUserName()">Click Me</button>
     </div>
+
+    <script>
+        window.onload = function() {
+            alert("Welcome to Krithi's Portfolio!");
+        };
+
+        function getUserName() {
+            let name = prompt("Enter your name:");
+
+            if (name === null || name.trim() === "") {
+                alert("Name cannot be empty. Please try again!");
+            } else {
+                alert("Hello " + name + "!");
+                document.getElementById("message").innerHTML =
+                    "Welcome " + name + "! Thanks for visiting my portfolio.";
+            }
+        }
+    </script>
 
 </body>
 </html>
