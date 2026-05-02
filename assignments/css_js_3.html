@@ -1,158 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Form</title>
+<title>Form</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            background: #f2f2f2;
-            padding: 20px;
-        }
+<style>
+body {font-family: Arial; background:#f2f2f2; padding:20px;}
+.container {background:white; width:400px; margin:auto; padding:15px; border-radius:10px;}
+input,select,textarea {width:100%; margin:5px 0; padding:6px;}
+.btn {width:100%; padding:8px; margin-top:5px; cursor:pointer;}
+#output {display:none; margin-top:15px; background:#e6f7ff; padding:10px;}
+</style>
 
-        .container {
-            background: white;
-            padding: 20px;
-            width: 420px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            padding: 8px;
-        }
-
-        .btn {
-            padding: 10px;
-            margin: 5px 0;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        .submit-btn {
-            background: #4CAF50;
-            color: white;
-            border: none;
-        }
-
-        .display-btn {
-            background: #2196F3;
-            color: white;
-            border: none;
-        }
-
-        .output {
-            margin-top: 20px;
-            background: #e6f7ff;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<h2>User Form</h2>
+<h2>Form</h2>
 
-<form>
+<input type="text" id="name" placeholder="Name">
+<input type="email" id="email" placeholder="Email">
 
-    Name:
-    <input type="text" id="name">
+<br>
+<input type="radio" name="g" value="Male"> Male
+<input type="radio" name="g" value="Female"> Female
 
-    Email:
-    <input type="email" id="email">
+<br><br>
+<input type="checkbox" value="Reading" class="h"> Reading
+<input type="checkbox" value="Sports" class="h"> Sports
 
-    Gender:<br>
-    <input type="radio" name="gender" value="Male"> Male
-    <input type="radio" name="gender" value="Female"> Female
-    <br><br>
+<br><br>
+<select id="country">
+    <option>India</option>
+    <option>USA</option>
+    <option>UK</option>
+</select>
 
-    Hobbies:<br>
-    <input type="checkbox" value="Reading" class="hobby"> Reading
-    <input type="checkbox" value="Sports" class="hobby"> Sports
-    <input type="checkbox" value="Music" class="hobby"> Music
-    <br><br>
+<textarea id="bio" rows="2" placeholder="Bio"></textarea>
+<textarea id="feed" rows="3" placeholder="Feedback"></textarea>
 
-    Country:
-    <select id="country">
-        <option>India</option>
-        <option>USA</option>
-        <option>UK</option>
-    </select>
+<button class="btn" onclick="store()">Submit</button>
+<button class="btn" onclick="show()">Display</button>
 
-    Short Bio:
-    <textarea id="bio" rows="2"></textarea>
-
-    Feedback:
-    <textarea id="feedback" rows="4"></textarea>
-
-    <button type="button" class="btn submit-btn" onclick="storeData()">
-        Submit
-    </button>
-
-    <button type="button" class="btn display-btn" onclick="displayData()">
-        Display Result
-    </button>
-
-</form>
-
-<div class="output" id="outputBox"></div>
+<div id="output"></div>
 
 </div>
 
 <script>
 
-let formData = {};
-function storeData() {
+let data = {};
 
-    let gender = "";
-    let hobbies = [];
+function store(){
+    let gender="";
+    document.getElementsByName("g").forEach(r=>{
+        if(r.checked) gender=r.value;
+    });
 
-    let genders = document.getElementsByName("gender");
-    for (let g of genders) {
-        if (g.checked) gender = g.value;
-    }
+    let hobbies=[];
+    document.querySelectorAll(".h").forEach(h=>{
+        if(h.checked) hobbies.push(h.value);
+    });
 
-    let hobbyList = document.getElementsByClassName("hobby");
-    for (let h of hobbyList) {
-        if (h.checked) hobbies.push(h.value);
-    }
-
-    formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        gender: gender,
-        hobbies: hobbies,
-        country: document.getElementById("country").value,
-        bio: document.getElementById("bio").value,
-        feedback: document.getElementById("feedback").value
+    data={
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        gender:gender,
+        hobbies:hobbies,
+        country:document.getElementById("country").value,
+        bio:document.getElementById("bio").value,
+        feed:document.getElementById("feed").value
     };
 
-    alert("Data stored successfully!");
+    alert("Saved!");
 }
 
-function displayData() {
+function show(){
+    let o=document.getElementById("output");
+    o.style.display="block";
 
-    let output = document.getElementById("outputBox");
-
-    output.innerHTML =
-        "<h3>Submitted Data</h3>" +
-        "<p><b>Name:</b> " + formData.name + "</p>" +
-        "<p><b>Email:</b> " + formData.email + "</p>" +
-        "<p><b>Gender:</b> " + formData.gender + "</p>" +
-        "<p><b>Hobbies:</b> " + formData.hobbies.join(", ") + "</p>" +
-        "<p><b>Country:</b> " + formData.country + "</p>" +
-        "<p><b>Short Bio:</b> " + formData.bio + "</p>" +
-        "<p><b>Feedback:</b> " + formData.feedback + "</p>";
-
-    output.style.display = "block";
+    o.innerHTML=
+    "<h3>Data</h3>"+
+    "<div>Name: "+data.name+"</div>"+
+    "<div>Email: "+data.email+"</div>"+
+    "<div>Gender: "+data.gender+"</div>"+
+    "<div>Hobbies: "+data.hobbies.join(", ")+"</div>"+
+    "<div>Country: "+data.country+"</div>"+
+    "<div>Bio: "+data.bio+"</div>"+
+    "<div>Feedback: "+data.feed+"</div>";
 }
 
 </script>
