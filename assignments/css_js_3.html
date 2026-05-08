@@ -26,7 +26,8 @@
         }
 
         input,
-        textarea {
+        textarea,
+        select {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
@@ -56,6 +57,10 @@
             color: teal;
             font-size: 22px;
         }
+
+        .gender {
+            margin: 10px 0;
+        }
     </style>
 </head>
 
@@ -69,23 +74,19 @@
 
         <input type="email" id="email" placeholder="Enter Email">
 
+        <select id="work">
+            <option>Select Work Type</option>
+            <option>Job Opportunity</option>
+            <option>Freelance Work</option>
+        </select>
+
         <textarea id="msg" rows="4" placeholder="Enter Message"></textarea>
 
-        <label>
+        <div class="gender">
             <input type="radio" name="gender" value="Male"> Male
-        </label>
 
-        <label>
             <input type="radio" name="gender" value="Female"> Female
-        </label>
-
-        <br><br>
-
-        <label>
-            <input type="checkbox" id="agree"> I Agree
-        </label>
-
-        <br><br>
+        </div>
 
         <button onclick="showData()">Submit</button>
 
@@ -98,27 +99,27 @@
     </div>
 
     <script>
+
         function showData() {
 
             let name = document.getElementById("name").value;
             let email = document.getElementById("email").value;
+            let work = document.getElementById("work").value;
             let msg = document.getElementById("msg").value;
 
             let gender = document.querySelector('input[name="gender"]:checked');
 
             gender = gender ? gender.value : "Not Selected";
 
-            let agree = document.getElementById("agree").checked
-                ? "Yes"
-                : "No";
-
             document.getElementById("output").innerHTML =
+
                 "<b>Name:</b> " + name + "<br>" +
                 "<b>Email:</b> " + email + "<br>" +
+                "<b>Work Type:</b> " + work + "<br>" +
                 "<b>Message:</b> " + msg + "<br>" +
-                "<b>Gender:</b> " + gender + "<br>" +
-                "<b>Agreed:</b> " + agree;
+                "<b>Gender:</b> " + gender;
         }
+
     </script>
 
 </body>
