@@ -1,186 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire Me Form</title>
+    <title>Contact Form</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            font-family: Arial;
+            background: #eaf7fb;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
-        .container {
+        .box {
             background: white;
-            padding: 30px;
+            padding: 25px;
+            width: 350px;
             border-radius: 10px;
-            width: 380px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        h2 {
+        h1 {
             text-align: center;
-            margin-bottom: 20px;
         }
 
         input,
-        select,
         textarea {
             width: 100%;
             padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin: 8px 0;
         }
 
-        .gender-box,
-        .skills-box {
-            margin-bottom: 15px;
-        }
-
-        .gender-box label,
-        .skills-box label {
-            margin-right: 15px;
-        }
-
-        input[type="radio"],
-        input[type="checkbox"] {
-            width: auto;
-            margin-right: 5px;
-        }
-
-        input[type="submit"] {
-            background: #007bff;
+        button {
+            width: 100%;
+            padding: 10px;
+            background: teal;
             color: white;
             border: none;
             cursor: pointer;
-            font-weight: bold;
         }
 
-        input[type="submit"]:hover {
-            background: #0056b3;
+        .result {
+            background: #dff5ff;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
         }
 
-        .back-link {
+        a {
             display: block;
             text-align: center;
             margin-top: 15px;
             text-decoration: none;
-            color: #007bff;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        #successMessage {
-            text-align: center;
-            color: green;
-            font-weight: bold;
-            margin-top: 10px;
+            color: teal;
+            font-size: 22px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="box">
 
-        <h2>Contact Me</h2>
+        <h1>Contact Form</h1>
 
-        <form id="contactForm">
+        <input type="text" id="name" placeholder="Enter Name">
 
-            <label>Name:</label>
-            <input type="text" id="name" required>
+        <input type="email" id="email" placeholder="Enter Email">
 
-            <label>Email:</label>
-            <input type="email" id="email" required>
+        <textarea id="msg" rows="4" placeholder="Enter Message"></textarea>
 
-            <label>Subject:</label>
-            <select id="subject">
-                <option>Job Opportunity</option>
-                <option>Freelance Work</option>
-                <option>Collaboration</option>
-            </select>
+        <label>
+            <input type="radio" name="gender" value="Male"> Male
+        </label>
 
-            <div class="gender-box">
-                <label><strong>Gender:</strong></label><br>
+        <label>
+            <input type="radio" name="gender" value="Female"> Female
+        </label>
 
-                <input type="radio" name="gender" value="Male" required>
-                <label>Male</label>
+        <br><br>
 
-                <input type="radio" name="gender" value="Female">
-                <label>Female</label>
-            </div>
+        <label>
+            <input type="checkbox" id="agree"> I Agree
+        </label>
 
-            <div class="skills-box">
-                <label><strong>Interested In:</strong></label><br>
+        <br><br>
 
-                <input type="checkbox" value="Web Development">
-                <label>Web Development</label><br>
+        <button onclick="showData()">Submit</button>
 
-                <input type="checkbox" value="App Development">
-                <label>App Development</label><br>
+        <div class="result" id="output"></div>
 
-                <input type="checkbox" value="UI/UX Design">
-                <label>UI/UX Design</label>
-            </div>
-
-            <label>Message:</label>
-            <textarea rows="4" id="message" required></textarea>
-
-            <input type="submit" value="Send">
-
-        </form>
-
-        <p id="successMessage"></p>
-
-        <a class="back-link"
-            href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
-            Back to Homepage
+        <a href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
+            Go to Home Page
         </a>
 
     </div>
 
     <script>
+        function showData() {
 
-        const form = document.getElementById("contactForm");
-        const successMessage = document.getElementById("successMessage");
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let msg = document.getElementById("msg").value;
 
-        form.addEventListener("submit", function (event) {
+            let gender = document.querySelector('input[name="gender"]:checked');
 
-            event.preventDefault();
+            gender = gender ? gender.value : "Not Selected";
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const subject = document.getElementById("subject").value;
-            const message = document.getElementById("message").value;
+            let agree = document.getElementById("agree").checked
+                ? "Yes"
+                : "No";
 
-            let gender = document.querySelector('input[name="gender"]:checked').value;
-
-            alert(
-                "Form Submitted Successfully!\n\n" +
-                "Name: " + name + "\n" +
-                "Email: " + email + "\n" +
-                "Subject: " + subject + "\n" +
-                "Gender: " + gender + "\n" +
-                "Message: " + message
-            );
-
-            successMessage.innerHTML = "Your message has been sent successfully!";
-
-            form.reset();
-
-        });
-
+            document.getElementById("output").innerHTML =
+                "<b>Name:</b> " + name + "<br>" +
+                "<b>Email:</b> " + email + "<br>" +
+                "<b>Message:</b> " + msg + "<br>" +
+                "<b>Gender:</b> " + gender + "<br>" +
+                "<b>Agreed:</b> " + agree;
+        }
     </script>
 
 </body>
