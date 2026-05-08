@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Form</title>
+    <title>Hire Me Form</title>
 
     <style>
         body {
@@ -21,7 +21,7 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            width: 350px;
+            width: 380px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -39,6 +39,22 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
+        }
+
+        .gender-box,
+        .skills-box {
+            margin-bottom: 15px;
+        }
+
+        .gender-box label,
+        .skills-box label {
+            margin-right: 15px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
         }
 
         input[type="submit"] {
@@ -64,38 +80,108 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        #successMessage {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
+
         <h2>Contact Me</h2>
 
-        <form>
+        <form id="contactForm">
+
             <label>Name:</label>
-            <input type="text" name="name" required>
+            <input type="text" id="name" required>
 
             <label>Email:</label>
-            <input type="email" name="email" required>
+            <input type="email" id="email" required>
 
             <label>Subject:</label>
-            <select name="subject">
+            <select id="subject">
                 <option>Job Opportunity</option>
                 <option>Freelance Work</option>
                 <option>Collaboration</option>
             </select>
 
+            <div class="gender-box">
+                <label><strong>Gender:</strong></label><br>
+
+                <input type="radio" name="gender" value="Male" required>
+                <label>Male</label>
+
+                <input type="radio" name="gender" value="Female">
+                <label>Female</label>
+            </div>
+
+            <div class="skills-box">
+                <label><strong>Interested In:</strong></label><br>
+
+                <input type="checkbox" value="Web Development">
+                <label>Web Development</label><br>
+
+                <input type="checkbox" value="App Development">
+                <label>App Development</label><br>
+
+                <input type="checkbox" value="UI/UX Design">
+                <label>UI/UX Design</label>
+            </div>
+
             <label>Message:</label>
-            <textarea rows="4" name="message" required></textarea>
+            <textarea rows="4" id="message" required></textarea>
 
             <input type="submit" value="Send">
+
         </form>
 
-        <a class="back-link" href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
+        <p id="successMessage"></p>
+
+        <a class="back-link"
+            href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
             Back to Homepage
         </a>
+
     </div>
+
+    <script>
+
+        const form = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            let gender = document.querySelector('input[name="gender"]:checked').value;
+
+            alert(
+                "Form Submitted Successfully!\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Subject: " + subject + "\n" +
+                "Gender: " + gender + "\n" +
+                "Message: " + message
+            );
+
+            successMessage.innerHTML = "Your message has been sent successfully!";
+
+            form.reset();
+
+        });
+
+    </script>
 
 </body>
 
