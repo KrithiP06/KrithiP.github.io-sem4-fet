@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Layer Switcher</title>
+    <title>Simple Layer Switcher</title>
 
     <style>
         body {
@@ -10,48 +10,57 @@
             padding: 30px;
         }
 
+        h1 {
+            margin-bottom: 20px;
+        }
+
         button {
             padding: 8px 15px;
             margin-right: 5px;
             cursor: pointer;
+            font-size: 14px;
         }
 
-       .box {
-    width: 350px;
-    height: 180px;
-    border: 2px solid black;
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 180px;
-    position: absolute;
-}
+        .box {
+            width: 350px;
+            height: 180px;
+            border: 2px solid black;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 180px;
+            position: absolute;
+        }
 
-#red {
-    background-color: tomato;
-    top: 180px;
-    left: 120px;
-    z-index: 1;
-}
+        #red {
+            background-color: tomato;
+            top: 180px;
+            left: 120px;
+            z-index: 1;
+        }
 
-#blue {
-    background-color: steelblue;
-    top: 210px;
-    left: 150px;
-    z-index: 0;
-}
+        #blue {
+            background-color: steelblue;
+            top: 210px;
+            left: 150px;
+            z-index: 0;
+        }
 
-#green {
-    background-color: seagreen;
-    top: 240px;
-    left: 180px;
-    z-index: -1;
-}
+        #green {
+            background-color: seagreen;
+            top: 240px;
+            left: 180px;
+            z-index: -1;
+        }
 
         #output {
-            margin-top: 550px;
+            margin-top: 500px;
             font-size: 22px;
+            background: white;
+            padding: 15px;
+            width: 350px;
+            border: 2px solid black;
         }
     </style>
 </head>
@@ -71,7 +80,9 @@
     <div id="blue" class="box">BLUE LAYER</div>
     <div id="green" class="box">GREEN LAYER</div>
 
-    <div id="output"></div>
+    <div id="output">
+        Loop output will appear here
+    </div>
 
     <script src="script.js"></script>
 
