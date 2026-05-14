@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Image Layer Switcher</title>
+    <title>Simple Layer Switcher</title>
 
     <style>
         body {
@@ -42,23 +42,30 @@
 
         #layer2 {
             background-color: royalblue;
-            top: 180px;
-            left: 120px;
+            top: 210px;
+            left: 150px;
             z-index: 0;
         }
 
         #layer3 {
-            background-color: darkgreen;
-            top: 180px;
-            left: 120px;
+            background-color: seagreen;
+            top: 240px;
+            left: 180px;
             z-index: -1;
+        }
+
+        .home-btn {
+            margin-top: 500px;
+            padding: 10px 18px;
+            font-size: 15px;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Image Layer Switcher</h1>
+    <h1>Simple Layer Switcher</h1>
 
     <button onclick="showLayer1()">Layer 1</button>
     <button onclick="showLayer2()">Layer 2</button>
@@ -100,11 +107,10 @@
             document.getElementById("layer3").style.zIndex = "3";
         }
     </script>
-    <br><br>
 
-<a href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
-    Back to homepage
-</a>
+    <a href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
+        <button class="home-btn">Back to Homepage</button>
+    </a>
 
 </body>
 </html>
