@@ -21,26 +21,31 @@ function showGreen() {
 
 function autoSwitch() {
 
-    let colors = ["Red", "Blue", "Green"];
+    let layers = ["red", "blue", "green"];
     let i = 0;
-    let text = "";
 
-    while(i < colors.length) {
-        text += colors[i] + " Layer<br>";
+    setInterval(function () {
+
+        resetLayers();
+
+        document.getElementById(layers[i]).style.zIndex = "3";
+
         i++;
-    }
 
-    document.getElementById("output").innerHTML =
-        "While Loop Output:<br>" + text;
+        while(i >= layers.length) {
+            i = 0;
+        }
+
+    }, 1000);
 
     let j = 1;
-    let count = "";
+    let text = "";
 
     do {
-        count += "Layer " + j + " Active<br>";
+        text += "Layer " + j + " Active<br>";
         j++;
     } while(j <= 3);
 
-    document.getElementById("output").innerHTML +=
-        "<br>Do While Output:<br>" + count;
+    document.getElementById("output").innerHTML =
+        "Do While Loop Output:<br>" + text;
 }
