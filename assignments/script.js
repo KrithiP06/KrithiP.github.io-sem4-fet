@@ -38,14 +38,9 @@ function autoSwitch() {
 
     }, 1000);
 
-    let j = 1;
-    let text = "";
+    let j = 0;
 
     do {
-        text += "Layer " + j + " Active<br>";
         j++;
-    } while(j <= 3);
-
-    document.getElementById("output").innerHTML =
-        "Do While Loop Output:<br>" + text;
+    } while(j < 3);
 }
