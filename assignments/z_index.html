@@ -1,66 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Layer Changer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Layer Switcher</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+        }
 
-    .box {
-      width: 200px;
-      height: 200px;
-      margin: 20px auto;
-      background: gray;
-      border: 3px solid black;
-      transition: 0.3s;
-    }
+        h1 {
+            color: #333;
+        }
 
-    button {
-      padding: 10px 15px;
-      margin: 5px;
-      cursor: pointer;
-      border: none;
-      color: white;
-      font-size: 16px;
-    }
+        .buttons {
+            margin-bottom: 30px;
+        }
 
-    .red-btn {
-      background: red;
-    }
+        button {
+            padding: 10px 18px;
+            margin-right: 10px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 15px;
+        }
 
-    .blue-btn {
-      background: blue;
-    }
+        button:hover {
+            background-color: #555;
+        }
 
-    .green-btn {
-      background: green;
-    }
+        .container {
+            position: relative;
+            width: 450px;
+            height: 250px;
+        }
 
-    .yellow-btn {
-      background: orange;
-    }
-  </style>
+        .layer {
+            width: 300px;
+            height: 180px;
+            position: absolute;
+            border: 3px solid black;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #orange {
+            background-color: orange;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        #purple {
+            background-color: purple;
+            top: 30px;
+            left: 40px;
+            z-index: 0;
+        }
+
+        #green {
+            background-color: green;
+            top: 60px;
+            left: 80px;
+            z-index: -1;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="box" id="colorBox"></div>
+    <h1>Color Layer Switcher</h1>
 
-  <button class="red-btn" onclick="changeColor('red')">Red</button>
-  <button class="blue-btn" onclick="changeColor('blue')">Blue</button>
-  <button class="green-btn" onclick="changeColor('green')">Green</button>
-  <button class="yellow-btn" onclick="changeColor('orange')">Yellow</button>
+    <div class="buttons">
+        <button onclick="showOrange()">Show Orange</button>
+        <button onclick="showPurple()">Show Purple</button>
+        <button onclick="showGreen()">Show Green</button>
+    </div>
 
-  <script>
-    function changeColor(color) {
-      document.getElementById("colorBox").style.background = color;
-    }
-  </script>
+    <div class="container">
+        <div id="orange" class="layer">ORANGE LAYER</div>
+        <div id="purple" class="layer">PURPLE LAYER</div>
+        <div id="green" class="layer">GREEN LAYER</div>
+    </div>
+
+    <script>
+        function resetLayers() {
+            document.getElementById("orange").style.zIndex = "0";
+            document.getElementById("purple").style.zIndex = "0";
+            document.getElementById("green").style.zIndex = "0";
+        }
+
+        function showOrange() {
+            resetLayers();
+            document.getElementById("orange").style.zIndex = "3";
+        }
+
+        function showPurple() {
+            resetLayers();
+            document.getElementById("purple").style.zIndex = "3";
+        }
+
+        function showGreen() {
+            resetLayers();
+            document.getElementById("green").style.zIndex = "3";
+        }
+    </script>
 
 </body>
 </html>
