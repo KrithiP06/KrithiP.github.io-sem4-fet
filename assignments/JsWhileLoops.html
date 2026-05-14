@@ -34,41 +34,31 @@
         }
 
         #red {
-            background-color: tomato;
+            background-color: crimson;
             top: 180px;
-            left: 120px;
+            left: 180px;
             z-index: 1;
         }
 
         #blue {
-            background-color: steelblue;
+            background-color: royalblue;
             top: 180px;
-            left: 120px;
+            left: 180px;
             z-index: 0;
         }
 
         #green {
             background-color: seagreen;
             top: 180px;
-            left: 120px;
+            left: 180px;
             z-index: -1;
         }
 
-        #output {
-            margin-top: 500px;
-            font-size: 18px;
-            background: white;
-            padding: 10px;
-            width: 300px;
-            border: 1px solid black;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 18px;
-            text-decoration: none;
-            color: blue;
+        .home-btn {
+            margin-top: 450px;
+            padding: 10px 18px;
+            font-size: 15px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -85,15 +75,13 @@
     <br><br>
 
     <div id="red" class="box">RED LAYER</div>
+
     <div id="blue" class="box">BLUE LAYER</div>
+
     <div id="green" class="box">GREEN LAYER</div>
 
-    <div id="output">
-        Loop output will appear here
-    </div>
-
     <a href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
-        Back to homepage
+        <button class="home-btn">Back to Homepage</button>
     </a>
 
     <script src="script.js"></script>
