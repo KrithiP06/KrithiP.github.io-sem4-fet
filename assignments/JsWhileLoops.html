@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Layer Switcher</title>
+    <title>Layer Switcher with Loops</title>
 
     <style>
         body {
@@ -42,32 +42,40 @@
 
         #blue {
             background-color: steelblue;
-            top: 210px;
-            left: 150px;
+            top: 180px;
+            left: 120px;
             z-index: 0;
         }
 
         #green {
             background-color: seagreen;
-            top: 240px;
-            left: 180px;
+            top: 180px;
+            left: 120px;
             z-index: -1;
         }
 
         #output {
             margin-top: 500px;
-            font-size: 22px;
+            font-size: 18px;
             background: white;
-            padding: 15px;
-            width: 350px;
-            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: blue;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Simple Layer Switcher</h1>
+    <h1>Layer Switcher with Loops</h1>
 
     <button onclick="showRed()">Show Red</button>
     <button onclick="showBlue()">Show Blue</button>
@@ -84,10 +92,11 @@
         Loop output will appear here
     </div>
 
+    <a href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
+        Back to homepage
+    </a>
+
     <script src="script.js"></script>
 
-     <a class="button" href="https://krithip06.github.io/KrithiP.github.io-sem4-fet/">
-            Back to Homepage
-     </a>
 </body>
 </html>
